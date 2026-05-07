@@ -9,13 +9,13 @@
     const ogUrl = baseUrl + (typeof path !== 'undefined' ? path : '');
   %>
   <meta name="description" content="<%= desc %>">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="icon" type="image/jpeg" href="/img/logo.jpg">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="<%= company.name %>">
   <meta property="og:description" content="<%= desc %>">
   <meta property="og:url" content="<%= ogUrl %>">
-  <meta property="og:image" content="<%= baseUrl %>/img/hero.jpg">
+  <meta property="og:image" content="<%= baseUrl %>/img/logo.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="stylesheet" href="/css/style.css">
@@ -23,12 +23,8 @@
 <body>
   <header class="site-header">
     <div class="container nav-row">
-      <a href="/" class="brand">
-        <img src="/img/logo.png" alt="<%= company.name %>" class="brand-logo">
-        <span class="brand-text">
-          <strong>Liller Brothers</strong>
-          <small>Paving &amp; Maintenance</small>
-        </span>
+      <a href="/" class="brand" aria-label="Liller Bros. Asphalt Inc. — home">
+        <img src="/img/logo.jpg" alt="The Original Liller Bros. Asphalt Inc. — Since 1949" class="brand-logo">
       </a>
       <nav>
         <a href="/" class="<%= path === '/' ? 'is-active' : '' %>">Home</a>
