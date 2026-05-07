@@ -1,0 +1,92 @@
+<%- include('partials/header') %>
+
+<section class="page-banner">
+  <img src="/img/hero.jpg" alt="" class="banner-img" aria-hidden="true">
+  <div class="banner-overlay">
+    <div class="container">
+      <h1>Contact Us</h1>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="contact-grid">
+    <div>
+      <% if (submitted) { %>
+        <div class="card flash flash-success">
+          <strong>Thanks — we got your message.</strong>
+          <p class="mt-1 mb-0">We'll get back to you as soon as possible.</p>
+        </div>
+      <% } else { %>
+        <div class="card">
+          <h2>Send Us a Message</h2>
+          <p class="text-muted">Estimates, questions, scheduling — fill out the form and we'll be in touch.</p>
+          <form method="POST" action="/contact">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <%# Honeypot — hidden from users via CSS, bots fill it in %>
+            <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+              <label for="website">Website (leave blank)</label>
+              <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" name="name" id="name" class="form-control" required maxlength="200">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" name="email" id="email" class="form-control" required maxlength="200">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" id="phone" class="form-control" maxlength="50">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">What can we help with? *</label>
+              <textarea name="message" id="message" class="form-control" rows="6" required maxlength="5000" placeholder="Tell us about your project — location, size, timing if you have it."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>Reach Us Directly</h2>
+        <p>
+          <strong>Phone:</strong><br>
+          <a href="tel:<%= company.phone.replace(/[^0-9+]/g, '') %>" class="big-link"><%= company.phone %></a>
+        </p>
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:<%= company.email %>"><%= company.email %></a>
+        </p>
+        <p>
+          <strong>Plant address:</strong><br>
+          <a href="https://www.google.com/maps?q=<%= encodeURIComponent(company.plantAddress) %>" target="_blank" rel="noopener noreferrer"><%= company.plantAddress %></a>
+        </p>
+        <p>
+          <strong>Mailing address:</strong><br>
+          <%= company.mailingAddress %>
+        </p>
+        <p>
+          <strong>Service area:</strong><br>
+          Pennsylvania, Maryland, West Virginia
+        </p>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <iframe
+          title="Map to <%= company.plantAddress %>"
+          src="https://maps.google.com/maps?q=<%= encodeURIComponent(company.plantAddress) %>&output=embed"
+          style="width:100%;height:300px;border:0;display:block;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

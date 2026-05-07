@@ -1,0 +1,30 @@
+  </main>
+  <footer class="site-footer">
+    <div class="container site-footer-grid">
+      <div>
+        <strong>Liller Brothers Paving</strong>
+        <div><a href="https://www.google.com/maps?q=<%= encodeURIComponent(company.plantAddress) %>" target="_blank" rel="noopener noreferrer"><%= company.plantAddress %></a></div>
+        <div><%= company.mailingAddress %></div>
+        <div>Phone: <a href="tel:<%= company.phone.replace(/[^0-9+]/g, '') %>"><%= company.phone %></a></div>
+        <div>Email: <a href="mailto:<%= company.email %>"><%= company.email %></a></div>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <div><a href="/">Home</a></div>
+        <div><a href="/services">Services</a></div>
+        <div><a href="/about">About</a></div>
+        <div><a href="/contact">Contact</a></div>
+      </div>
+      <div>
+        <strong>Service Area</strong>
+        <div>Pennsylvania</div>
+        <div>Maryland</div>
+        <div>West Virginia</div>
+      </div>
+    </div>
+    <div class="site-footer-bottom container">
+      &copy; <%= new Date().getFullYear() %> Liller Brothers Paving. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

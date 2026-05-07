@@ -1,0 +1,64 @@
+<%- include('partials/header') %>
+
+<section class="page-banner">
+  <img src="/img/hero.jpg" alt="" class="banner-img" aria-hidden="true">
+  <div class="banner-overlay">
+    <div class="container">
+      <h1>Our Services</h1>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <p class="lead">We provide comprehensive asphalt paving services, including new road and parking lot construction, resurfacing and repairs — for commercial and residential customers.</p>
+
+  <div class="services-detail">
+    <article>
+      <h3>Asphalt Paving</h3>
+      <p>New construction, resurfacing, and repair work for parking lots, driveways, private roads, and commercial sites. Whether it's a small driveway or a large lot, our crews bring the same standard of work.</p>
+    </article>
+    <article>
+      <h3>Sealcoating</h3>
+      <p>Premium seal coating extends the life of your pavement by protecting against UV, water, oil, and freeze-thaw damage. Recommended every 2–3 years for the best protection.</p>
+    </article>
+    <article>
+      <h3>Line Striping &amp; Markings</h3>
+      <p>Crisp, durable parking lot lines and pavement markings — including handicap stalls, fire lanes, directional arrows, and custom stencils.</p>
+    </article>
+    <article>
+      <h3>Pothole Repairs</h3>
+      <p>Catch pavement damage early. We patch potholes and surface defects before they spread into expensive structural repairs.</p>
+    </article>
+    <article>
+      <h3>Commercial Snow Plowing</h3>
+      <p>24/7 snow removal for commercial properties throughout the season. Reliable response so your customers and employees can get to your business safely.</p>
+    </article>
+    <article>
+      <h3>Full Parking Lot Maintenance</h3>
+      <p>Combine paving, sealcoating, striping, and snow plowing into one ongoing maintenance program. One vendor, one schedule, one number to call.</p>
+    </article>
+  </div>
+</section>
+
+<% if (gallery && gallery.length > 0) { %>
+<section class="container section">
+  <h2 class="section-title">Recent Work</h2>
+  <div class="gallery">
+    <% for (const src of gallery) { %>
+      <a href="<%= src %>" target="_blank" rel="noopener noreferrer" class="gallery-item">
+        <img src="<%= src %>" alt="Liller Brothers paving project" loading="lazy">
+      </a>
+    <% } %>
+  </div>
+</section>
+<% } %>
+
+<section class="callout">
+  <div class="container">
+    <h2>Have a project?</h2>
+    <p>Call us at <a href="tel:<%= company.phone.replace(/[^0-9+]/g, '') %>"><%= company.phone %></a> or send us a message — we'll come take a look and write you up an estimate.</p>
+    <a href="/contact" class="btn btn-primary">Get a Quote</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

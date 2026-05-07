@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    container_name: lillerbros-app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: 3500
+    ports:
+      # nginx on 100.91.194.83 reverse-proxies https://lillerbros.pcc2k.com → :3500
+      - "3500:3500"
+    volumes:
+      # logs/ persists contact-form submissions across rebuilds
+      - lillerbros_logs:/app/logs
+
+volumes:
+  lillerbros_logs:

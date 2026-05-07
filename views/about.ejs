@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<section class="page-banner">
+  <img src="/img/hero.jpg" alt="" class="banner-img" aria-hidden="true">
+  <div class="banner-overlay">
+    <div class="container">
+      <h1>About Liller Brothers</h1>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="prose">
+    <p class="lead">We provide comprehensive asphalt solutions, including new road and parking lot construction, resurfacing, and repairs.</p>
+    <p>In addition, we offer <strong>sealcoating</strong>, <strong>line striping</strong>, <strong>commercial snow plowing</strong>, <strong>pothole repairs</strong>, and <strong>full parking lot maintenance services</strong>.</p>
+    <p>Our experienced crews ensure durable, smooth results for residential and commercial clients across Pennsylvania, Maryland, and West Virginia.</p>
+  </div>
+
+  <hr class="rule">
+
+  <div class="prose">
+    <h2>Service Area</h2>
+    <p>We serve clients throughout western Maryland, southwestern Pennsylvania, and eastern West Virginia. Our plant is located at <a href="https://www.google.com/maps?q=<%= encodeURIComponent(company.plantAddress) %>" target="_blank" rel="noopener noreferrer"><%= company.plantAddress %></a>.</p>
+
+    <h2>Get in Touch</h2>
+    <p>For estimates or questions, give us a call at <a href="tel:<%= company.phone.replace(/[^0-9+]/g, '') %>"><%= company.phone %></a> or email <a href="mailto:<%= company.email %>"><%= company.email %></a>. You can also use our <a href="/contact">contact form</a>.</p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
