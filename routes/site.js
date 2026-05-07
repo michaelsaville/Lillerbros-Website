@@ -1,6 +1,7 @@
 const express = require('express');
 const fs      = require('fs');
 const path    = require('path');
+const config  = require('../config');
 const router  = express.Router();
 
 // Generate the gallery list at startup from public/img/gallery/.
@@ -15,7 +16,10 @@ try {
 } catch { /* gallery dir missing — fine */ }
 
 router.get('/', (req, res) => {
-  res.render('home', { title: 'Liller Brothers Paving — Asphalt, Sealcoating, Plowing' });
+  res.render('home', {
+    title: 'Liller Brothers Paving — Asphalt, Sealcoating, Plowing',
+    pricing: config.pricing,
+  });
 });
 
 router.get('/about', (req, res) => {

@@ -381,3 +381,111 @@ label { display: block; font-weight: 600; margin-bottom: 4px; font-size: 0.95rem
   color: #aaa;
   font-size: 0.85rem;
 }
+
+/* === Price ticker (home page) ============================================
+   A horizontal "today's price" band between the hero and the services grid.
+   Asphalt-dark base + yellow road-stripe accents pick up the existing motif;
+   the ticker reads as a piece of infrastructure, not a banner.
+============================================================================ */
+
+.price-ticker {
+  background: var(--asphalt);
+  color: var(--text-on-dark);
+  border-top: 4px solid var(--stripe);
+  border-bottom: 4px solid var(--stripe);
+  /* faint dashed road-line texture along the bottom edge for cohesion with .callout */
+  background-image:
+    linear-gradient(90deg, rgba(255,197,0,0.08) 50%, transparent 50%);
+  background-size: 40px 2px;
+  background-repeat: repeat-x;
+  background-position: bottom center;
+}
+.price-ticker-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 24px;
+  flex-wrap: wrap;
+}
+.price-ticker-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.price-ticker-eyebrow {
+  color: var(--stripe);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+.price-ticker-product {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: white;
+}
+.price-ticker-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  color: white;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.price-ticker-currency {
+  font-size: 1.5rem;
+  color: var(--stripe);
+  margin-right: 2px;
+}
+.price-ticker-value {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  line-height: 1;
+}
+.price-ticker-unit {
+  font-size: 1.05rem;
+  color: var(--text-on-dark);
+  font-weight: 600;
+  margin-left: 4px;
+}
+.price-ticker-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  text-align: right;
+  line-height: 1.3;
+}
+.price-ticker-updated {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a8a8a8;
+}
+.price-ticker-link {
+  color: var(--stripe);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+}
+.price-ticker-link:hover {
+  color: var(--stripe);
+  border-bottom-color: var(--stripe);
+}
+
+@media (max-width: 720px) {
+  .price-ticker-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 16px;
+  }
+  .price-ticker-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

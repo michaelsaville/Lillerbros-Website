@@ -1,5 +1,17 @@
 <%- include('partials/header') %>
 
+<%
+  // Format an ISO date string (YYYY-MM-DD) as "Month D, YYYY" without timezone drift.
+  function formatPriceDate(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    if (!y || !m || !d) return iso;
+    return months[m - 1] + ' ' + d + ', ' + y;
+  }
+%>
+
 <section class="hero">
   <img src="/img/hero.jpg" alt="" class="hero-img" aria-hidden="true">
   <div class="hero-overlay">
@@ -10,6 +22,22 @@
         <a href="/contact" class="btn btn-primary">Get a Quote</a>
         <a href="/services" class="btn btn-ghost">See Our Work</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="price-ticker" aria-label="Current asphalt pricing">
+  <div class="container price-ticker-row">
+    <div class="price-ticker-label">
+      <span class="price-ticker-eyebrow">Today's Price</span>
+      <span class="price-ticker-product">Asphalt</span>
+    </div>
+    <div class="price-ticker-amount">
+      <span class="price-ticker-currency">$</span><span class="price-ticker-value"><%= pricing.asphaltPerTon %></span><span class="price-ticker-unit">/ ton</span>
+    </div>
+    <div class="price-ticker-meta">
+      <span class="price-ticker-updated">Updated <%= formatPriceDate(pricing.lastUpdated) %></span>
+      <a href="/contact" class="price-ticker-link">Request a quote &rsaquo;</a>
     </div>
   </div>
 </section>

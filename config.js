@@ -16,6 +16,13 @@ module.exports = {
 
   contactEmail: process.env.CONTACT_EMAIL || '',
 
+  // Current published pricing — owner edits these and rebuilds.
+  // Keep dates in ISO (YYYY-MM-DD); the view formats for humans.
+  pricing: {
+    asphaltPerTon: 80,
+    lastUpdated: '2026-05-07',
+  },
+
   // Static company info — change here, no DB.
   company: {
     name: 'Liller Brothers Paving',
